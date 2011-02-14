@@ -1,4 +1,14 @@
 ModbiblioUcc::Application.routes.draw do
+  get "sessions/new"
+
+  get "users/new"
+
+  get "users/edit"
+
+  get "users/show"
+
+  get "users/index"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -1,0 +1,35 @@
+<% title "Libro" %>
+
+<p>
+  <strong>Isbn:</strong>
+  <%= @book.isbn %>
+</p>
+<p>
+  <strong>Titulo:</strong>
+  <%= @book.title %>
+</p>
+<p>
+  <strong>Editorial:</strong>
+  <%= @book.editorial %>
+</p>
+<p>
+  <strong>Descripción:</strong>
+  <%= @book.description %>
+</p>
+<p>
+  <strong>Autor(es)</strong>
+  <% for author in @book.authors %>
+    <li><%=h author.name %></li>
+  <% end %>
+</p>
+<p>
+  <strong>Ejemplares</strong>
+  <% for copy in @book.copies %>
+    <li><%=h copy.code %></li>
+  <% end %>
+</p>
+<p>
+  <%= link_to "Editar", edit_book_path(@book) %> |
+  <%= link_to "Eliminar", @book, :confirm => 'Está seguro?', :method => :delete %> |
+  <%= link_to "Ver todos", books_path %>
+</p>

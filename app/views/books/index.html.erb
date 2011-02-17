@@ -1,0 +1,23 @@
+<% title "Libros" %>
+
+<table>
+  <tr>
+    <th>Isbn</th>
+    <th>Titulo</th>
+    <th>Editorial</th>
+    <th>Descripción</th>
+  </tr>
+  <% for book in @books %>
+    <tr>
+      <td><%= book.isbn %></td>
+      <td><%= book.title %></td>
+      <td><%= book.editorial %></td>
+      <td><%= book.description %></td>
+      <td><%= link_to "Mostrar", book %></td>
+      <td><%= link_to "Editar", edit_book_path(book) %></td>
+      <td><%= link_to "Eliminar", book, :confirm => 'Está seguro?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "Nuevo Libro", new_book_path(book) %></p>

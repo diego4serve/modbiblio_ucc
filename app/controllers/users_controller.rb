@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   load_and_authorize_resource
+
   def new
     @user = User.new
   end
@@ -19,7 +20,6 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-
     respond_to do |format|
       if @user.update_attributes(params[:user])
         format.html { redirect_to(@user, :notice => 'Usuario modificado exitosamente') }
@@ -31,7 +31,6 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
     end
@@ -39,10 +38,8 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
-
     respond_to do |format|
       format.html # index.html.erb
     end
   end
-
 end

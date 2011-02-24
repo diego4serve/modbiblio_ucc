@@ -1,4 +1,4 @@
-<% title "Libros" %>
+<% title "Biblioteca Escolar" %>
 
 <table>
   <tr>
@@ -26,10 +26,13 @@
         <% end %>
       </td>
       <td><%= link_to "Mostrar", book %></td>
-      <td><%= link_to "Editar", edit_book_path(book) %></td>
-      <td><%= link_to "Eliminar", book, :confirm => 'Está seguro?', :method => :delete %></td>
+      <% if can? :update, @books %>
+        <td><%= link_to "Editar", edit_book_path(book) %></td>
+        <td><%= link_to "Eliminar", book, :confirm => 'Está seguro?', :method => :delete %></td>
+      <% end %>
     </tr>
   <% end %>
 </table>
-
-<p><%= link_to "Nuevo Libro", new_book_path(book) %></p>
+<% if can? :create, @books %>
+  <p><%= link_to "Nuevo Libro", new_book_path(book) %></p>
+<% end %>

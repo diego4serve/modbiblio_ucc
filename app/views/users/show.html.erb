@@ -10,6 +10,7 @@
   <%= @user.isadmin %>
 </p>
 
-
-<%= link_to 'Editar', edit_user_path(@user) %> |
+<% if can? :update, @user %>
+  <%= link_to 'Editar', edit_user_path(@user) %> |
+<% end %>
 <%= link_to 'Regresar', users_path %>

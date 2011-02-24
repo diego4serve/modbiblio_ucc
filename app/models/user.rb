@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
   attr_accessible :username, :password, :password_confirmation, :isadmin
   attr_accessor :password
   before_save :encrypt_password
+  
+  has_many :requests
 
   validates_confirmation_of :password
   validates_presence_of :password, :on => :create, :message => "No puede estar vacio"

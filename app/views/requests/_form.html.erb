@@ -1,0 +1,10 @@
+<%= semantic_form_for @request do |f| %>
+  <%= f.inputs do %>
+    <%= f.input :user  %>
+    <%= f.input :copy, :as => :select, :collection => Copy.order(:code), :label_method => :code %>
+  <% end %>
+  <% if can? :update, @request %>
+    <%= f.inputs :activated, :request_date, :delivery_date, :return_date %>
+  <% end %>
+  <%= f.buttons %>
+<% end %>

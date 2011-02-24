@@ -25,11 +25,13 @@ class Ability
     #
     # See the wiki for details: https://github.com/ryanb/cancan/wiki/Defining-Abilities
 
-    
-    if user.isadmin
+    user ||= User.new
+
+    if user.isadmin?
       can :manage, :all
     else
       can :read, :all
+      can :create, User
     end
   end
 end

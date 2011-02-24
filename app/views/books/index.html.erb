@@ -6,6 +6,8 @@
     <th>Titulo</th>
     <th>Editorial</th>
     <th>Descripción</th>
+    <th>Autor(es)</th>
+    <th>Ejemplares</th>
   </tr>
   <% for book in @books %>
     <tr>
@@ -13,6 +15,16 @@
       <td><%= book.title %></td>
       <td><%= book.editorial %></td>
       <td><%= book.description %></td>
+      <td>
+        <% for author in book.authors %>
+          <p><%= author.name %></p>
+        <% end %>
+      </td>
+      <td>
+        <% for copy in book.copies %>
+          <p><%= copy.code %></p><p><%= link_to "Reservar", new_request_path(:code => copy.code) %></p>
+        <% end %>
+      </td>
       <td><%= link_to "Mostrar", book %></td>
       <td><%= link_to "Editar", edit_book_path(book) %></td>
       <td><%= link_to "Eliminar", book, :confirm => 'Está seguro?', :method => :delete %></td>

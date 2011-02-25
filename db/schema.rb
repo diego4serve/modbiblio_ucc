@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110224072645) do
+ActiveRecord::Schema.define(:version => 20110225004226) do
 
   create_table "authors", :force => true do |t|
     t.string   "name"
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(:version => 20110224072645) do
     t.integer  "book_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "unavailable", :default => false
   end
 
   create_table "requests", :force => true do |t|

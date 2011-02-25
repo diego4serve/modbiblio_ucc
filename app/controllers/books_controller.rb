@@ -10,7 +10,7 @@ class BooksController < ApplicationController
 
   def new
     @book = Book.new
-    2.times { @book.authors.build }
+    3.times { @book.authors.build }
     3.times { @book.copies.build }
   end
 

@@ -5,10 +5,10 @@ class User < ActiveRecord::Base
   
   has_many :requests
 
-  validates_confirmation_of :password
-  validates_presence_of :password, :on => :create, :message => "No puede estar vacio"
-  validates_presence_of :username, :message => "No puede estar vacio"
-  validates_uniqueness_of :username
+  validates :password, :presence => { :on => :create, :message => "No puede estar vacio" },
+    :confirmation => true
+  validates :username, :uniqueness => true,
+    :presence => { :message => "No puede estar vacio" }
 
   def encrypt_password
     if password.present?

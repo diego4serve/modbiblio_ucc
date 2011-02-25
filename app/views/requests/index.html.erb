@@ -1,12 +1,13 @@
 <%= title "Listado de Solicitudes" %>
 <table>
   <tr>
-    <th>User</th>
-    <th>Copy</th>
-    <th>Activated</th>
-    <th>Request date</th>
-    <th>Delivery date</th>
-    <th>Return date</th>
+    <th>Nombre de Usuario</th>
+    <th>Ejemplar</th>
+    <th>Titulo</th>
+    <th>Activado</th>
+    <th>Fecha de reserva</th>
+    <th>Fecha de entrega</th>
+    <th>Fecha de devolución</th>
     <th></th>
     <th></th>
     <th></th>
@@ -14,8 +15,9 @@
 
 <% @requests.each do |request| %>
   <tr>
-    <td><%= request.user_id %></td>
+    <td><%= request.user.username %></td>
     <td><%= request.copy_id %></td>
+    <td><%= request.copy.book.title %></td>
     <td><%= request.activated %></td>
     <td><%= request.request_date %></td>
     <td><%= request.delivery_date %></td>
@@ -29,4 +31,4 @@
 
 <br />
 
-<%= link_to 'New Request', new_request_path %>
+<%= link_to 'New Request', new_request_path %> | <%= link_to "Regresar", books_path %>

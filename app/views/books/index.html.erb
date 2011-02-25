@@ -34,5 +34,5 @@
   <% end %>
 </table>
 <% if can? :create, @books %>
-  <p><%= link_to "Nuevo Libro", new_book_path(book) %></p>
+  <p><%= link_to "Nuevo Libro", new_book_path(book) %> | <%= link_to "Administrar Usuarios", users_path %> | <%= link_to "Administrar Prestamos", requests_path %></p>
 <% end %>

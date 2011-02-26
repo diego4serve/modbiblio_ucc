@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>User:</b>
-  <%= @request.user_id %>
+  <b>Usuario:</b>
+  <%= @request.user.username %>
 </p>
 
 <p>
@@ -11,25 +11,31 @@
 </p>
 
 <p>
-  <b>Activated:</b>
+  <b>Titulo:</b>
+  <%= @request.copy.book.title %>
+</p>
+
+<p>
+  <b>Activo:</b>
   <%= @request.activated %>
 </p>
 
 <p>
-  <b>Request date:</b>
+  <b>Fecha de Solicitud:</b>
   <%= @request.request_date %>
 </p>
 
 <p>
-  <b>Delivery date:</b>
+  <b>Fecha de Entrega:</b>
   <%= @request.delivery_date %>
 </p>
 
 <p>
-  <b>Return date:</b>
+  <b>Fecha de devolucion:</b>
   <%= @request.return_date %>
 </p>
 
 
-<%= link_to 'Edit', edit_request_path(@request) %> |
-<%= link_to 'Back', requests_path %>
+<%= link_to 'Editar', edit_request_path(@request) %> |
+<%= link_to 'Regresar', requests_path %> |
+<%= link_to 'Página Principal', books_path %>

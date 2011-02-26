@@ -1,10 +1,15 @@
 <%= semantic_form_for @request do |f| %>
-  <%= f.inputs do %>
-    <%= f.input :user  %>
-    <%= f.input :copy, :as => :select, :collection => Copy.order(:code), :label_method => :code %>
+  <% f.inputs do %>
+    <%= f.input :user, :label => "Usuario" %>
+    <%= f.input :copy, :label => "Codigo de Copia", :as => :select, :collection => Copy.order(:code), :label_method => :code %>
+    <%= f.input :request_date, :label => "Fecha de Solicitud" %>
+    <% if can? :update, @request %>
+      <%= f.input :activated, :label => "Activado" %> 
+      <%= f.input :delivery_date, :label => "Fecha de Entrega" %> 
+      <%= f.input :return_date, :label => "Fecha de Devolucion" %>
+    <% end %>
   <% end %>
-  <% if can? :update, @request %>
-    <%= f.inputs :activated, :request_date, :delivery_date, :return_date %>
+  <%= f.buttons do %>
+    <%= f.commit_button :label => "Enviar"%>
   <% end %>
-  <%= f.buttons %>
 <% end %>

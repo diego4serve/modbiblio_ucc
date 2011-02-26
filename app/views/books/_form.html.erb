@@ -1,10 +1,10 @@
 <%= semantic_form_for @book do |f| %>
-  <%= f.inputs do %>
+  <% f.inputs do %>
     <%= f.input :isbn %>
     <%= f.input :title, :label => "Titulo" %>
     <%= f.input :editorial %>
     <%= f.input :description, :label => "Descripcion", :input_html => { :rows => 5 } %>
-    <%= f.input :authors, :label => "Autor(es)", :as => :select, :collection => Author.order(:name) %>
+    <%= f.input :authors, :label => "Autores Existentes", :as => :select, :collection => Author.order(:name) %>
     <h3>Nuevo Autor(es)</h3>
     <%= f.semantic_fields_for :authors do |builder| %>
       <%= builder.input :name, :label => "Nombre" %>

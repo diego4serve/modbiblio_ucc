@@ -1,4 +1,5 @@
-<%= title "Listado de Solicitudes" %>
+<% title "Listado de Solicitudes" %>
+
 <table>
   <tr>
     <th>Nombre de Usuario</th>
@@ -16,19 +17,19 @@
 <% @requests.each do |request| %>
   <tr>
     <td><%= request.user.username %></td>
-    <td><%= request.copy_id %></td>
+    <td><%= request.copy.code %></td>
     <td><%= request.copy.book.title %></td>
     <td><%= request.activated %></td>
     <td><%= request.request_date %></td>
     <td><%= request.delivery_date %></td>
     <td><%= request.return_date %></td>
-    <td><%= link_to 'Show', request %></td>
-    <td><%= link_to 'Edit', edit_request_path(request) %></td>
-    <td><%= link_to 'Destroy', request, :confirm => 'Esta seguro?', :method => :delete %></td>
+    <td><%= link_to 'Mostrar', request %></td>
+    <td><%= link_to 'Editar', edit_request_path(request) %></td>
+    <td><%= link_to 'Eliminar', request, :confirm => 'Esta seguro?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Request', new_request_path %> | <%= link_to "Regresar", books_path %>
+<%= link_to 'Nuevo Prestamo', new_request_path %> | <%= link_to "Pagina Principal", books_path %>

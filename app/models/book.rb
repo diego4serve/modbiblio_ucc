@@ -9,8 +9,7 @@ class Book < ActiveRecord::Base
     :presence => true
   validates :isbn, :uniqueness => true,
     :presence => true
-  validates :editorial, :uniqueness => true,
-    :presence => true
+  validates :editorial, :presence => true
   
   accepts_nested_attributes_for :copies, :reject_if => :all_blank
   accepts_nested_attributes_for :authors, :reject_if => :all_blank

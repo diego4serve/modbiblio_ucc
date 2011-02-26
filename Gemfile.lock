@@ -45,6 +45,10 @@ GEM
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    meta_where (1.0.3)
+      activerecord (~> 3.0.4)
+      activesupport (~> 3.0.4)
+      arel (~> 2.0.8)
     mime-types (1.16)
     mocha (0.9.12)
     nifty-generators (0.4.5)
@@ -55,6 +59,7 @@ GEM
       rack (>= 1.0.0)
     rack-test (0.5.7)
       rack (>= 1.0)
+    railroady (1.0.1)
     rails (3.0.4)
       actionmailer (= 3.0.4)
       actionpack (= 3.0.4)
@@ -101,8 +106,10 @@ DEPENDENCIES
   bcrypt-ruby
   cancan
   formtastic
+  meta_where
   mocha
   nifty-generators
+  railroady
   rails (= 3.0.4)
   rspec (= 2.5.0)
   rspec-rails (= 2.5.0)

@@ -9,6 +9,8 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 gem "bcrypt-ruby", :require => "bcrypt"
 gem "cancan"
 gem "formtastic"
+gem "railroady"
+gem "meta_where"
 
 group :development do
   gem 'rspec-rails', '2.5.0'

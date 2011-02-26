@@ -22,7 +22,10 @@
       </td>
       <td>
         <% for copy in book.copies %>
-          <p><%= copy.code %></p><p><%= link_to "Reservar", new_request_path(:code => copy.code) %></p>
+          <p><%= copy.code %></p>
+          <% if can? :create, Request %>
+            <%= link_to "Reservar", new_request_path(:code => copy.code) %>
+          <% end %>
         <% end %>
       </td>
       <td><%= link_to "Mostrar", book %></td>

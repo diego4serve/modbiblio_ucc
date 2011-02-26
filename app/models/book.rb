@@ -13,5 +13,5 @@ class Book < ActiveRecord::Base
   
   accepts_nested_attributes_for :copies, :reject_if => :all_blank
   accepts_nested_attributes_for :authors, :reject_if => :all_blank
-    
+  
 end

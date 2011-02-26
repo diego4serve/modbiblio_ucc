@@ -1,5 +1,11 @@
 <% title "Biblioteca Escolar" %>
 
+Buscar por titulo ó descripción
+<%= form_tag books_path, :method => 'get' do %>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Buscar", :name => nil %>
+<% end %>
+<br />
 <table>
   <tr>
     <th>Isbn</th>

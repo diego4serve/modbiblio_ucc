@@ -1,7 +1,7 @@
 class BooksController < ApplicationController
   load_and_authorize_resource
   def index
-    @books = Book.all
+    @books = Book.where({:title.matches => "%#{params[:search]}%"} | {:description.matches => "%#{params[:search]}%"}).all
   end
 
   def show

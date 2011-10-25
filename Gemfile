@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.4'
+gem 'rails', '3.0.9'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -13,12 +13,12 @@ gem "railroady"
 gem "meta_where"
 
 group :development do
-  gem 'rspec-rails', '2.5.0'
+  gem 'rspec-rails', '2.6.1'
   gem "nifty-generators"
 end
 
 group :test do
-  gem 'rspec', '2.5.0'
+  gem 'rspec-rails', '2.6.1'
   gem 'webrat', '0.7.1'
   gem "mocha"
 end

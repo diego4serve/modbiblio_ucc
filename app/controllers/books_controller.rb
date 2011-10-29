@@ -2,14 +2,20 @@ class BooksController < ApplicationController
   load_and_authorize_resource
   def index
     @books = Book.where({:title.matches => "%#{params[:search]}%"} | {:description.matches => "%#{params[:search]}%"}).all
+    @title = "Listado de Libros"
+    @header = @title
   end
 
   def show
     @book = Book.find(params[:id])
+    @title = "Detalle de Libro"
+    @header = @title
   end
 
   def new
     @book = Book.new
+    @title = "Nuevo Libro"
+    @header = @title
     3.times { @book.authors.build }
     3.times { @book.copies.build }
   end
@@ -26,6 +32,8 @@ class BooksController < ApplicationController
 
   def edit
     @book = Book.find(params[:id])
+    @title = "Editar Libro"
+    @header = @title
   end
 
   def update

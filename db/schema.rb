@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(:version => 20110225004226) do
     t.integer  "user_id"
     t.integer  "copy_id"
     t.boolean  "activated",     :default => false
-    t.date     "request_date",  :default => '2011-10-25'
+    t.date     "request_date",  :default => '2011-02-24'
     t.date     "delivery_date"
     t.date     "return_date"
     t.datetime "created_at"

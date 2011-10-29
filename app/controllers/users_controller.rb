@@ -3,8 +3,10 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    @title = "Registrese"
+    @header = @title
   end
-  
+
   def create
     @user = User.new(params[:user])
     if @user.save
@@ -16,6 +18,7 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    @title = "Editar usuario"
   end
 
   def update
@@ -28,9 +31,10 @@ class UsersController < ApplicationController
       end
     end
   end
-  
+
   def show
     @user = User.find(params[:id])
+    @title = "Detalle de usuario"
     respond_to do |format|
       format.html # show.html.erb
     end
@@ -38,8 +42,10 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+    @title = "Listado de Usuarios"
     respond_to do |format|
       format.html # index.html.erb
     end
   end
 end
+

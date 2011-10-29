@@ -1,29 +1,123 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="es-CO" xmlns="http://www.w3.org/1999/xhtml" dir="ltr"
+  xml:lang="es" >
   <head>
-    <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
-    <%= stylesheet_link_tag "application" %>
-    <%= formtastic_stylesheet_link_tag %>
+    <title><%= title  %></title>
+    <%= stylesheet_link_tag 'style' %>
+    <%= stylesheet_link_tag 'formtastic', 'formtastic_changes' %>
+    <!--[if IE 6]><%= stylesheet_link_tag 'style.ie6' %><![endif]-->
+    <!--[if IE 7]><%= stylesheet_link_tag 'style.ie7' %><![endif]-->
     <%= javascript_include_tag :defaults %>
+    <%= javascript_include_tag 'script' %>
     <%= csrf_meta_tag %>
-    <%= yield(:head) %>
   </head>
   <body>
-    <div id="container">
-      <div id="user_nav">
-        <% if current_user %>
-          Sesion iniciada como usuario: <b><%= current_user.username %></b>.
-          <%= link_to "Cerrar Sesion", log_out_path %>
-        <% else %>
-          <%= link_to "Regístrese", sign_up_path %> o
-          <%= link_to "Inicie Sesion", log_in_path %>
-        <% end %>
+    <div id="art-page-background-glare">
+      <div id="art-page-background-glare-image"></div>
+    </div>
+    <div id="art-main">
+      <div class="art-sheet">
+        <div class="art-sheet-tl"></div>
+        <div class="art-sheet-tr"></div>
+        <div class="art-sheet-bl"></div>
+        <div class="art-sheet-br"></div>
+        <div class="art-sheet-tc"></div>
+        <div class="art-sheet-bc"></div>
+        <div class="art-sheet-cl"></div>
+        <div class="art-sheet-cr"></div>
+        <div class="art-sheet-cc"></div>
+        <div class="art-sheet-body">
+          <div class="art-header">
+            <div class="art-header-png"></div>
+            <div class="art-header-jpeg"></div>
+            <div class="art-logo">
+              <h1 class="art-logo-name" id="name-text"><a href="#">iBiblio</a></h1>
+              <div class="art-logo-text" id="slogan-text">Sistema de préstamo bibliotecario</div>
+            </div>
+          </div>
+          <div class="art-nav">
+            <div class="l"></div>
+            <div class="r"></div>
+            <ul class="art-menu">
+              <li>
+                <a class="active" href="/"><span class="l"></span><span class="r"></span><span class="t">Indice de Libros</span></a>
+              </li><li class="art-menu-li-separator"><span class="art-menu-separator"></span></li>
+              <li>
+                <% if can? :manage, Request -%>
+                  <a href="/requests"><span class="l"></span><span class="r"></span><span class="t">Administrar Prestamos</span></a>
+                <% end -%>
+              </li><li class="art-menu-li-separator"><span class="art-menu-separator"></span></li>
+              <li>
+                <% if can? :create, Book -%>
+                  <a href="/users"><span class="l"></span><span class="r"></span><span class="t">Administrar Usuarios</span></a>
+                <% end -%>
+              </li>
+            </ul>
+          </div>
+          <div class="art-content-layout">
+            <div class="art-content-layout-row">
+              <div class="art-layout-cell art-content">
+                <div class="art-post">
+                  <div class="art-post-tl"></div>
+                  <div class="art-post-tr"></div>
+                  <div class="art-post-bl"></div>
+                  <div class="art-post-br"></div>
+                  <div class="art-post-tc"></div>
+                  <div class="art-post-bc"></div>
+                  <div class="art-post-cl"></div>
+                  <div class="art-post-cr"></div>
+                  <div class="art-post-cc"></div>
+                  <div class="art-post-body">
+                    <div class="art-post-inner art-article">
+                        <div id="user_nav">
+                          <% if current_user %>
+                            Sesion iniciada como usuario: <b><%= current_user.username %></b>.
+                            <%= link_to "Cerrar Sesion", log_out_path %>
+                          <% else %>
+                            <%= link_to "Regístrese", sign_up_path %> o
+                            <%= link_to "Inicie Sesion", log_in_path %>
+                          <% end %>
+                        </div>
+                      <h2 class="art-postheader">
+                        <%= image_tag("postheadericon.png")  %>
+                        <%= header  %>
+                      </h2>
+                      <div class="art-postcontent">
+                        <!-- article-content -->
+
+                        <%= yield %>
+                      </div>
+                      <div class="cleared"></div>
+                    </div>
+
+                    <div class="cleared"></div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div class="cleared"></div><div class="art-footer">
+            <div class="art-footer-t"></div>
+            <div class="art-footer-l"></div>
+            <div class="art-footer-b"></div>
+            <div class="art-footer-r"></div>
+            <div class="art-footer-body">
+              <a title="RSS" class="art-rss-tag-icon" href="#"></a>
+              <div class="art-footer-text">
+                <p><a href="#">Contáctenos</a> | <a href="#">Ayuda</a> | <a href="#">Colegio Ateneo Moderno</a><br>
+                  Copyright &copy; 2011 Ateneo Moderno. Todos los derechos reservados.</p>
+              </div>
+              <div class="cleared"></div>
+            </div>
+          </div>
+          <div class="cleared"></div>
+        </div>
       </div>
-      <% flash.each do |name, msg| %>
-        <%= content_tag :div, msg, :id => "flash_#{name}" %>
-      <% end %>
-      <%= content_tag :h1, yield(:title) if show_title? %>
-      <%= yield %>
+      <div class="cleared"></div>
+      <p class="art-page-footer"></p>
     </div>
   </body>
 </html>
+

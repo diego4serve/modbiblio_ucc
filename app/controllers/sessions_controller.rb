@@ -1,5 +1,7 @@
 class SessionsController < ApplicationController
   def new
+    @title = "Bienvenido"
+    @header = @title
   end
 
   def create

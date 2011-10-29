@@ -5,10 +5,10 @@ gem 'rails', '3.0.9'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3-ruby', :require => 'sqlite3'
+gem 'sqlite3'
 gem "bcrypt-ruby", :require => "bcrypt"
 gem "cancan"
-gem "formtastic"
+gem "formtastic", "1.2.4"
 gem "railroady"
 gem "meta_where"
 

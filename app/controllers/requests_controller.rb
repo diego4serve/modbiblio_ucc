@@ -4,7 +4,8 @@ class RequestsController < ApplicationController
   load_and_authorize_resource
   def index
     @requests = Request.all
-
+    @title = "Listado de Solicitudes"
+    @header = @title
     respond_to do |format|
       format.html # index.html.erb
     end
@@ -24,6 +25,8 @@ class RequestsController < ApplicationController
   # GET /requests/new.xml
   def new
     @request = Request.new
+    @title = "Reservar Libro"
+    @header = @title
     @request.user = current_user
     @request.copy = Copy.find_by_code(params[:code])
     @request.request_date = Date.today
@@ -36,6 +39,8 @@ class RequestsController < ApplicationController
   # GET /requests/1/edit
   def edit
     @request = Request.find(params[:id])
+    @title = "Editar prestamo"
+    @header = @title
   end
 
   # POST /requests
@@ -43,7 +48,7 @@ class RequestsController < ApplicationController
   def create
     @request = Request.new(params[:request])
     @request_temp = Request.find(:all, :conditions => "copy_id ='#{@request.copy_id}' and request_date = '#{@request.request_date}'")
-    
+
     if @request_temp.blank?
       respond_to do |format|
         if @request.save
@@ -87,3 +92,4 @@ class RequestsController < ApplicationController
     end
   end
 end
+
